@@ -12,6 +12,19 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     	<maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <dependencies>
+      <dependency>
+        <groupId>,rg.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>9.4-1200-jdbc41</version>
+      </dependency>
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>7.0</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
 <build>
     <plugins>
         <plugin>
