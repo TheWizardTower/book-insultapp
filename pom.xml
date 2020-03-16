@@ -14,7 +14,7 @@
     </properties>
     <dependencies>
       <dependency>
-        <groupId>,rg.postgresql</groupId>
+        <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>9.4-1200-jdbc41</version>
       </dependency>
