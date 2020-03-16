@@ -39,7 +39,7 @@ public class InsultGenerator {
         rs.close();
         connection.close();
     } catch (Exception e) {
-        return "Database connection problem!\n\n" + e.getMessage() +
+        return "DOODOODOO\n\nDatabase connection problem!\n\n" + e.getMessage() +
             "\nUsername: " + username + "\nPassword: " + password +
             "\nDatabase Conn Str: " + databaseURL + " Insult: " + theInsult
             ;
