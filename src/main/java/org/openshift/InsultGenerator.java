@@ -17,29 +17,24 @@ public class InsultGenerator {
     String password = System.getenv("POSTGRESQL_PASSWORD");
     try {
         Connection connection = DriverManager.getConnection(databaseURL, "insult", "insult");
-
         if (connection == null) {
             return "Connection was null!";
         }
-
         String SQL = "SELECT a.string AS first, b.string AS second, c.string " +
             "AS noun from short_adjective a, long_adjective b, noun c " +
             "ORDER BY random() limit 1";
-
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
-
         while (rs.next()) {
             if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
                 article = "a";
             }
-
             theInsult = String.format("Thou art %s %s %s %s!",
                                       article,
                                       rs.getString("first"),
                                       rs.getString("second"),
-                                      rs.getString("noun"));
-
+                                      rs.getString("noun")
+                                      );
         }
         rs.close();
         connection.close();
