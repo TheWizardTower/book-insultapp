@@ -10,15 +10,13 @@ public class InsultGenerator {
     String vowels = "AEIOU";
 		String article = "an";
     String theInsult = "";
+    String databaseURL = "jdbc:postgresql://";
+    databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST");
+    databaseURL += "/" +  System.getenv("POSTGRESQL_DATABASE");
+    String username = System.getenv("POSTGRESQL_USER");
+    String password = System.getenv("POSTGRESQL_PASSWORD");
     try {
-        String databaseURL = "jdbc:postgresql://";
-        databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST");
-        databaseURL += "/" +  System.getenv("POSTGRESQL_DATABASE");
-
-        String username = System.getenv("POSTGRESQL_USER");
-        String password = System.getenv("POSTGRESQL_PASSWORD");
-
-        Connection connection = DriverManager.getConnection(databaseURL, username, password);
+        Connection connection = DriverManager.getConnection(databaseURL, username, "insult");
 
         if (connection == null) {
             return "Connection was null!";
@@ -42,7 +40,10 @@ public class InsultGenerator {
             connection.close();
         }
     } catch (Exception e) {
-        return "Database connection problem!\n\n" + e.getMessage();
+        return "Database connection problem!\n\n" + e.getMessage() +
+            "\nUsername: " + username + "\nPassword: " + password +
+            "\nDatabase Conn Str: " + databaseURL
+            ;
     }
 
     return theInsult;
