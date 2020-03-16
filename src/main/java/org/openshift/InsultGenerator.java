@@ -12,7 +12,7 @@ public class InsultGenerator {
     String theInsult = "";
     String databaseURL = "jdbc:postgresql://";
     databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST");
-    databaseURL += "/" +  System.getenv("POSTGRESQL_DATABASE");
+    databaseURL += "/" +  "insults"
     String username = System.getenv("POSTGRESQL_USER");
     String password = System.getenv("POSTGRESQL_PASSWORD");
     try {
