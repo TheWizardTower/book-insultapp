@@ -26,7 +26,7 @@ public class InsultGenerator {
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
         while (rs.next()) {
-            if (vowels.indexOf(rs.getString("first").charAt(0).toUpperCase()) == -1) {
+            if (Characters.toUpperCase(vowels.indexOf(rs.getString("first").charAt(0))) == -1) {
                 article = "a";
             }
             theInsult = String.format("Thou art %s %s %s %s!",
